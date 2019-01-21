@@ -25,8 +25,8 @@ class AddNotesState extends State<AddNotes>{
             icon: Icon(Icons.done),
             onPressed: (){
               if (finalKey.currentState.validate()) {
-                
-              }
+                print(finalKey.currentState);
+             }
             },
           ),
         ],
@@ -40,16 +40,7 @@ class AddNotesState extends State<AddNotes>{
               margin: const EdgeInsets.all(16),
               child: Column(
                 children: <Widget>[
-                  TextFormField(
-                    decoration: InputDecoration(
-                      hintText: 'Title *'
-                    ),
-                    validator: (value) {
-                      if (value.isEmpty) {
-                        return 'Please enter some title';
-                      }
-                    },
-                  ),
+                  title,
                   TextFormField(
                     decoration: InputDecoration(
                       hintText: 'Description *'
@@ -57,7 +48,7 @@ class AddNotesState extends State<AddNotes>{
                     maxLines: 4,
                     validator: (value) {
                       if (value.isEmpty) {
-                        return 'Please enter some title';
+                        return 'Please enter some description';
                       }
                     },
                   ),
@@ -70,3 +61,14 @@ class AddNotesState extends State<AddNotes>{
     );
   }
 }
+
+final title = TextFormField(
+  decoration: InputDecoration(
+    hintText: 'Title *'
+  ),
+  validator: (value) {
+    if (value.isEmpty) {
+      return 'Please enter some title';
+    }
+  },
+);
